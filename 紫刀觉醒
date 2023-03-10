@@ -1,0 +1,266 @@
+wait(2)
+local UIS = game:GetService("UserInputService")
+local Cooldown = Instance.new("BoolValue")
+Cooldown.Parent = game.Workspace
+local User = "你的名字"
+local Player = game.Workspace.Living[User]
+local AAA = game.ReplicatedStorage["Client Assets"].Umbra.SovereignFX
+
+AAA.Start.Core.Anchored = false
+AAA.Start.Core2.Anchored = false
+AAA.End.Core.Anchored = false
+AAA.End.Core2.Anchored = false
+
+
+
+
+
+
+			local animationId = "7745633118" 
+
+
+
+			local player = game:GetService("Players").LocalPlayer
+local character = game.Workspace.Living[User]
+			local humanoid = character:WaitForChild("Humanoid")
+			local animation = Instance.new("Animation")
+			animation.AnimationId = "rbxassetid://"..animationId
+			local animationTrack = humanoid:LoadAnimation(animation)
+			animationTrack:Play()
+
+
+			local Effect = game.ReplicatedStorage["Client Assets"].Umbra.SovereignFX:Clone()
+			local Smoke = Effect.Smoke
+			Smoke.Parent = Player.HumanoidRootPart
+			local Weld = Instance.new("Motor6D")
+			Weld.Parent = Player.HumanoidRootPart
+			Weld.Part1 = Smoke
+			Weld.Part0 = Player.HumanoidRootPart
+			local cf0 = Player.HumanoidRootPart.Smoke.CFrame 
+			local cf1 = CFrame.new(8.5,-10.9,0) * CFrame.Angles(0,math.rad(90),0) 
+
+			Weld.C0 = cf0:Inverse() 
+			Weld.C1 = cf1:Inverse() 
+			local StartCore = Effect.Start.Core
+			StartCore.Parent = Player.HumanoidRootPart
+			local Weld = Instance.new("WeldConstraint")
+			Weld.Parent = Player.HumanoidRootPart 
+			Weld.Part1 = StartCore
+			Weld.Part0 = Smoke    
+
+			local StartCore2 = Effect.Start.Core2
+			StartCore2.Parent = Player.HumanoidRootPart
+			local Weld = Instance.new("WeldConstraint")
+			Weld.Parent = Player.HumanoidRootPart 
+			Weld.Part1 = StartCore2
+			Weld.Part0 = Smoke    
+
+			local EndCore = Effect.End.Core
+			EndCore.Name = "EndCore"
+			EndCore.Parent = Player.HumanoidRootPart
+			local Weld = Instance.new("WeldConstraint")
+			Weld.Parent = Player.HumanoidRootPart 
+			Weld.Part1 = EndCore
+			Weld.Part0 = Smoke    
+
+			local EndCore2 = Effect.End.Core2
+			EndCore2.Name = "EndCore2"
+			EndCore2.Parent = Player.HumanoidRootPart
+			local Weld = Instance.new("WeldConstraint")
+			Weld.Parent = Player.HumanoidRootPart 
+			Weld.Part1 = EndCore2
+			Weld.Part0 = Smoke    
+
+			Player.HumanoidRootPart.Smoke.Anchored = false
+
+
+
+
+			wait(0.5)
+			game.ReplicatedStorage["Client Assets"].Umbra.Sovereign.Anchored = true
+			for index, v in pairs(game.ReplicatedStorage["Client Assets"].Umbra.Sovereign:GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true    
+				end
+			end
+			local Wing = game.ReplicatedStorage["Client Assets"].Umbra.Sovereign:Clone()
+			Wing.Parent = Player.HumanoidRootPart
+			Wing.Transparency = 0
+			Wing.CFrame = Player.HumanoidRootPart.CFrame
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Sovereign"):GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+			Wing.Color = Color3.new(1, 1, 0.494118)
+			wait(0.00001)
+
+			Wing.Anchored = true
+			local Weld = Instance.new("Motor6D")
+			Weld.Parent = Player.HumanoidRootPart
+			Weld.Part1 = Wing
+			Weld.Part0 = Player.HumanoidRootPart
+			Wing.Anchored = false
+			local cf1 = CFrame.new(0,5,-3.5) * CFrame.Angles(-80.1,math.rad(0),0) 
+			Weld.C0 = cf1:Inverse() 
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Smoke").Attachment:GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+
+
+			for _, v in pairs (Player.HumanoidRootPart:WaitForChild("Smoke"):GetDescendants())do
+				if v.Name == 'Smoke' then 
+					v.Enabled = true
+				end
+			end
+			for _, v in pairs (Player.HumanoidRootPart:WaitForChild("Core"):GetDescendants())do
+				if v.ClassName == 'Beam' then 
+					v.Enabled = true
+				end
+			end
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core"):GetDescendants()) do
+				if v:IsA("Beam") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core2"):GetDescendants()) do
+				if v:IsA("Beam") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core").Attachment:GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+
+			for _, v in pairs (Player.HumanoidRootPart:WaitForChild("Sovereign"):GetDescendants())do
+				if v.Name == 'Smoke' then 
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = true
+				end
+			end
+
+
+
+
+			Player.HumanoidRootPart.Sovereign:Play()
+			Player.HumanoidRootPart["Sovereign Theme"]:Play()
+
+
+
+
+
+
+
+			local animationIda = "7745662002" 
+			local player = game:GetService("Players").LocalPlayer
+local character =game.Workspace.Living[User]
+			local humanoid = character:WaitForChild("Humanoid")
+			local animationa = Instance.new("Animation")
+			animationa.AnimationId = "rbxassetid://"..animationIda
+			local animationTracka = humanoid:LoadAnimation(animationa)
+			animationTracka:Play()
+			wait(2)
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Smoke").Attachment:GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = false
+				end
+			end
+
+
+			for _, v in pairs (Player.HumanoidRootPart:WaitForChild("Smoke"):GetDescendants())do
+				if v.Name == 'Smoke' then 
+					v.Enabled = false
+				end
+			end
+			for _, v in pairs (Player.HumanoidRootPart:WaitForChild("Core"):GetDescendants())do
+				if v.ClassName == 'Beam' then 
+					v.Enabled = false
+				end
+			end
+
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core"):GetDescendants()) do
+				if v:IsA("Beam") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = false
+				end
+			end
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core2"):GetDescendants()) do
+				if v:IsA("Beam") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = false
+				end
+			end
+
+			for index, v in pairs(Player.HumanoidRootPart:WaitForChild("Core").Attachment:GetDescendants()) do
+				if v:IsA("ParticleEmitter") then
+					v.Color = ColorSequence.new{
+						ColorSequenceKeypoint.new(0, Color3.new(1, 1, 0.494118)),
+						ColorSequenceKeypoint.new(1, Color3.new(1, 1, 0.494118))
+					}
+					v.Enabled = false
+				end
+			end
+
+			animationTracka:Stop()
+			--
+			while wait() do
+				local Player = game.Workspace.Living[User]
+				spawn(function()
+					game.CollectionService:AddTag(Player,"Sovereign")
+					Player.Name = "Umbra"
+					Player.Humanoid.DisplayName = Player
+				end)
+			end
+			--]]
+		
+
+
+
