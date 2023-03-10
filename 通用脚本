@@ -11,7 +11,7 @@ local function callback(Text)
    
    game.StarterGui:SetCore("SendNotification",  {
     Title = "整合脚本由修罗杀神制作";
-    Text = "无法加载脚本是因为脚本失效或者我没有添加";
+    Text = "无法加载脚本是因为脚本失效或者我没有加";
     Icon = "";
     Duration = 15;
     Button1 = "禁止宣传给外人,要key的脚本大概率是安全的但是要自己拿";
@@ -50,6 +50,45 @@ MainSection:NewButton("灯光强化", "大幅度提升你游戏亮度", function
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%81%AF%E5%85%89%E5%BC%BA%E5%8C%96"))()
 end)
 
+MainSection:NewButton("TP工具", "获得TP工具随便传送人", function()
+    mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+end)
+
+MainSection:NewButton("狙击脚本", "狙击别人", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
+end)
+
+MainSection:NewButton("服务器传送", "传送到其他服务器", function()
+    local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+local _place = game.PlaceId
+local _servers = Api .. _place .. "/servers/Public?sortOrder=Asc&limit=100"
+
+function ListServers(cursor)
+    local Raw = game:HttpGet(_servers .. ((cursor and "&cursor=" .. cursor) or ""))
+    return Http:JSONDecode(Raw)
+end
+
+local Server, Next;
+repeat
+    local Servers = ListServers(Next)
+    Server = Servers.data[1]
+    Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
+end)
+
 
 --LOCAL PLAYER
 local Player = Window:NewTab("玩家状态")
@@ -61,4 +100,45 @@ end)
 
 PlayerSection:NewSlider("跳跃力量", "跳啊！！", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
     game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+
+--gg
+local Other = Window:NewTab("快捷方式")
+local OtherSection = Other:NewSection("关闭脚本key")
+
+OtherSection:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.K, function()
+	Library:ToggleUI()
+end)
+
+
+--aut
+local AUT = Window:NewTab("AUT")
+local AUTSection = AUT:NewSection("AUT脚本")
+
+
+AUTSection:NewButton("紫刀和咲夜无CD(禁止给外人不然赔偿我300块))", "紫刀G和咲夜E技能无冷却！！！", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E6%97%A0CD"))()
+end)
+
+AUTSection:NewButton("AUT锁人GDMMOD)", "没有自动捡东西", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MXS-Scripts/mxs-free/main/AUT.lua", true))()
+end)
+
+AUTSection:NewButton("紫刀觉醒)", "其他替身也可以", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E8%A7%89%E9%86%92", true))()
+end)
+
+AUTSection:NewButton("XCHARA自动打THUG)", "刷金币", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/XCHARA%E8%87%AA%E5%8A%A8", true))()
+end)
+
+
+--Break in
+local Breakin = Window:NewTab("Breakin")
+local BreakinSection = Breakin:NewSection("Breakin脚本")
+
+
+BreakinSection:NewButton("全角色全物品获取)", "无", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Break%20in", true))()
 end)
