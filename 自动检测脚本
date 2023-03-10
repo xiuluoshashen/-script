@@ -32,6 +32,7 @@ local games = {
     [2317712696] = {"https://scriptblox.com/raw/Playeranimalore-esp-(Open-Source)_251","https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%82%E9%87%8E%E8%A5%BF%E9%83%A8%E8%87%AA%E7%9E%84"},
     [6872265039] = {"https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
     [621129760] = {"https://raw.githubusercontent.com/AkkGamerBoy/Axure-Hub/main/Axure%20Hub"},
+    [5656754541] = {"https://raw.githubusercontent.com/KarmaPanda/Roblox/main/astd-aio.lua"},
 }
 
 local urls = games[game.PlaceId]
