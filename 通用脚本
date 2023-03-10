@@ -1,0 +1,64 @@
+local function callback(Text)
+    if Text == "Button1 text" then
+     print ("Answer")
+   elseif Text == ("Button2 text") then
+    print ("Answer2")
+    end
+   end
+   
+   local NotificationBindable = Instance.new("BindableFunction")
+   NotificationBindable.OnInvoke = callback
+   
+   game.StarterGui:SetCore("SendNotification",  {
+    Title = "整合脚本由修罗杀神制作";
+    Text = "无法加载脚本是因为脚本失效或者我没有添加";
+    Icon = "";
+    Duration = 15;
+    Button1 = "禁止宣传给外人,要key的脚本大概率是安全的但是要自己拿";
+    Button2 = "坚持科技创新落后就要挨打";
+    Callback = NotificationBindable;
+   })
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("修罗杀神制作", "Ocean")
+
+-- MIAN
+local Main = Window:NewTab("主页面")
+local MainSection = Main:NewSection("脚本")
+
+
+MainSection:NewButton("通用管理员(iy)", "没有简介", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+MainSection:NewButton("更酷的客户端界面", "修改你的客户端页面不会被BAN", function()
+    loadstring(game:HttpGet("https://eternityhub.xyz/BetterRoblox/Loader"))()
+end)
+
+MainSection:NewButton("自动翻译(仅限老uiroblox聊天框)", ">d是取消翻译>加国家简写翻译比如>en就是自动翻译成英语", function()
+    loadstring(game:HttpGetAsync('https://i.qts.life/r/ChatInlineTranslator.lua', true))()
+end)
+
+MainSection:NewButton("抓包脚本", "抓取游戏代码", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+end)
+
+MainSection:NewButton("挂机防踢", "挂机游戏不会踢你出去", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
+end)
+
+MainSection:NewButton("灯光强化", "大幅度提升你游戏亮度", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%81%AF%E5%85%89%E5%BC%BA%E5%8C%96"))()
+end)
+
+
+--LOCAL PLAYER
+local Player = Window:NewTab("玩家状态")
+local PlayerSection = Player:NewSection("速度和跳跃")
+
+PlayerSection:NewSlider("行走速度", "速度！！", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+PlayerSection:NewSlider("跳跃力量", "跳啊！！", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
