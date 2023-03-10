@@ -1,0 +1,32 @@
+local function callback(Text)
+ if Text == "Button1 text" then
+  print ("Answer")
+elseif Text == ("Button2 text") then
+ print ("Answer2")
+ end
+end
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = callback
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "整合脚本由修罗杀神制作";
+ Text = "无法加载脚本是因为脚本失效或者我没有添加";
+ Icon = "";
+ Duration = 15;
+ Button1 = "禁止宣传给外人";
+ Button2 = "坚持科技创新落后就要挨打";
+ Callback = NotificationBindable;
+})
+local games = {
+    [189707] = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source", "https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/NaturalDisasterSurvival.lua","https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"},
+    [4282985734] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/cw%E4%BB%98%E8%B4%B9"},
+    [6516141723] = {"https://raw.githubusercontent.com/RegularVynixu/Vynixius/main/Doors/Loader.lua"}
+}
+
+local urls = games[game.PlaceId]
+if urls then
+    for _, url in ipairs(urls) do
+        loadstring(game:HttpGet(url))()
+    end
+end
