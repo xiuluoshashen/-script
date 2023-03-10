@@ -1,0 +1,8 @@
+_G.B = true
+while _G.B == true do
+local no = {
+    [1] = "G"  --E if sakuya, G if Umbra
+}
+
+game:GetService("ReplicatedStorage").Remotes.InputFunc:InvokeServer(unpack(no))
+end
