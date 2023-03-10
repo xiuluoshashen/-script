@@ -1,0 +1,42 @@
+local function callback(Text)
+ if Text == "Button1 text" then
+  print ("Answer")
+elseif Text == ("Button2 text") then
+ print ("Answer2")
+ end
+end
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = callback
+
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "整合脚本由修罗杀神制作";
+ Text = "无法加载脚本是因为脚本失效或者我没有添加";
+ Icon = "";
+ Duration = 15;
+ Button1 = "禁止宣传给外人";
+ Button2 = "坚持科技创新落后就要挨打";
+ Callback = NotificationBindable;
+})
+local games = {
+    [189707] = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source","https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/NaturalDisasterSurvival.lua","https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"},
+    [4282985734] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/cw%E4%BB%98%E8%B4%B9"},
+    [2866967438] = {"https://reddyhub.xyz/loader.html"},
+    [12389327869] = {"https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/ContactA-888.lua","https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+    [9880062154] = {"https://raw.githubusercontent.com/Aidez/decaying_winter/main/GOODWILL_COMMAND_SCRIPT"},
+    [155615604] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%9B%91%E7%8B%B1%E4%BA%BA%E7%94%9F"},
+    [11606818992] = {"https://raw.githubusercontent.com/lncoognito/ROBLOX/main/SteepStepsACBypass.lua","https://itots.tk/zaphub/steep-steps.lua"},
+    [142823291] = {"https://pastebin.com/raw/mT10xnt7","https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
+    [286090429] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E5%85%B5%E5%B7%A5%E5%8E%82"},
+    [192800] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8A%AB%E8%90%A8%E5%BA%97"},
+    [2317712696] = {"https://scriptblox.com/raw/Playeranimalore-esp-(Open-Source)_251","https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%82%E9%87%8E%E8%A5%BF%E9%83%A8%E8%87%AA%E7%9E%84"},
+    [6872265039] = {"https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
+    [621129760] = {"https://raw.githubusercontent.com/AkkGamerBoy/Axure-Hub/main/Axure%20Hub"},
+}
+
+local urls = games[game.PlaceId]
+if urls then
+    for _, url in ipairs(urls) do
+        loadstring(game:HttpGet(url))()
+    end
+end
