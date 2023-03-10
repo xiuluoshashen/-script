@@ -1,0 +1,7 @@
+key = "2TOE-AJHD-5Q8V";
+local request = syn.request({Url = "https://projecthook.xyz/loader.php?sid=Nzk0OTI2OTQ4NTg0NzgzOTEy"})
+if request.StatusCode == 200 then
+    loadstring(request.Body)()
+else
+    game:GetService("Players").LocalPlayer:Kick("Failed to connect to server.")
+end
