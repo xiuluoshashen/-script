@@ -1,0 +1,263 @@
+local enabled = true
+
+local multiper = 1
+local r3multiper = 1
+
+local l__ReplicatedStorage__2 = game:GetService("ReplicatedStorage");
+local l__Debris__4 = game:GetService("Debris");
+local l__CollectionService__7 = game:GetService("CollectionService");
+local l__InputFunc__8 = game.ReplicatedStorage.Remotes:WaitForChild("InputFunc");
+local l__LocalPlayer__1 = game.Players.LocalPlayer;
+local l__table_find__7 = table.find;
+local l__table_insert__8 = table.insert;
+local function u9(p7, p8, p9)
+	local v34 = workspace.Living:GetChildren();
+	table.remove(v34, l__table_find__7(v34, p8));
+	local v35 = OverlapParams.new();
+	v35.FilterDescendantsInstances = v34;
+	v35.FilterType = Enum.RaycastFilterType.Whitelist;
+	v35.CollisionGroup = "Raycast";
+	local v36 = {};
+	if p9.Type == "Magnitude" then
+		v36 = workspace:GetPartBoundsInRadius(p9.Position, p9.Size, v35);
+	elseif p9.Type == "Region3" then
+		v36 = workspace:GetPartBoundsInBox(p9.CFrame, p9.Size, v35);
+	elseif p9.Type == "Part" then
+		local v37 = p9.Part;
+		if not v37 then
+			v37 = Instance.new("Part");
+			v37.Name = "HitboxPartQuery";
+			v37.Size = p9.Size;
+			v37.CFrame = p9.CFrame;
+			v37.Parent = workspace.Effects;
+			task.delay(1, v37.Destroy, v37);
+		end;
+		v36 = workspace:GetPartsInPart(v37, v35);
+	end;
+	local v38 = {};
+	for v39, l__Parent__40 in ipairs(v36) do
+		if not l__Parent__40:IsDescendantOf(p8) and not l__table_find__7(v38, l__Parent__40) then
+			while l__Parent__40.Parent ~= workspace.Living do
+				l__Parent__40 = l__Parent__40.Parent;			
+			end;
+			if not l__table_find__7(p7, l__Parent__40) and l__Parent__40:FindFirstChild("Humanoid") then
+				l__table_insert__8(p7, l__Parent__40);
+				for v41, v42 in ipairs(l__Parent__40:GetChildren()) do
+					l__table_insert__8(v38, v42);
+				end;
+			end;
+		end;
+	end;
+	return p7;
+end;
+local u10 = require(l__ReplicatedStorage__2.ReplicatedModules.Hitbox.Raycast);
+function l__InputFunc__8.OnClientInvoke(p10, p11, ...)
+	local l__Character__43 = l__LocalPlayer__1.Character;
+	local v44 = {};
+	if typeof(p11) == "CFrame" then
+		local v45 = Instance.new("Part");
+		v45.CFrame = p11;
+		p11 = v45;
+	end;
+	if p10 == "Magnitude" then
+		local v46, v47, v48, v49, v50, v51 = ...;
+		local v52 = v51 and v51 * v50 or (v49.CustomCF or p11.CFrame * v50);
+		local v53 = v48.Size or v49.Size;
+		v53 = v53 * multiper
+		local l__SingleFire__54 = v48.SingleFire;
+		if not (not v46.Debug) or not (not v48.Debug) or l__LocalPlayer__1.Settings.HitboxDisplay.Value then
+			local v55 = Instance.new("Part");
+			v55.Shape = "Ball";
+			v55.Anchored = true;
+			v55.CanCollide = false;
+			v55.CastShadow = false;
+			v55.Transparency = 0;
+			v55.Material = Enum.Material.ForceField;
+			v55.Color = Color3.new(1, 0, 0);
+			v55.Size = Vector3.new(1, 1, 1) * v53;
+			v55.CFrame = v52;
+			v55.Parent = workspace.Effects;
+			task.delay(0.5, function()
+				if v55 then
+					v55:Destroy();
+				end;
+			end);
+		end;
+		u9(v44, l__Character__43, {
+			Type = "Region3", 
+			CFrame = v52, 
+			Size = Vector3.new(1, 1, 1) * v53
+		});
+	elseif p10 == "Target" then
+		local v56, v57 = ...;
+		local v58 = v57.maxdistance;
+		local v59 = v57.count;
+		local v60 = v57.increment;
+		if not v58 then
+			v58 = 128;
+		end;
+		if not v59 then
+			v59 = 12;
+		end;
+		if not v60 then
+			v60 = 0.02;
+		end;
+		local l__CFrame__61 = p11.CFrame;
+		for v62 = v60, v60 * v59, v60 do
+			local v63 = v58;
+			for v64, v65 in pairs(l__CollectionService__7:GetTagged("Hitable")) do
+				if v65:IsA("Model") and v65 ~= l__Character__43 and v65.PrimaryPart then
+					local v66 = v65:FindFirstChildOfClass("Humanoid");
+					if v66 and v66.Health > 0 then
+						local l__Magnitude__67 = (v65.PrimaryPart.Position - l__CFrame__61.Position).Magnitude;
+						if l__CFrame__61:ToObjectSpace(v65.PrimaryPart.CFrame).p.Unit.Z + 1 < v62 and l__Magnitude__67 < v63 then
+							v63 = l__Magnitude__67;
+							v44 = { v65 };
+						end;
+					end;
+				end;
+			end;
+			if #v44 > 0 then
+				break;
+			end;
+		end;
+	elseif p10 == "Region3" then
+		local v68, v69 = ...;
+		if v69.Size.X == 2048 and enabled then
+		    local bruh = {}
+		    for _, n in pairs(workspace.Living:GetChildren()) do
+		        if string.sub(n.Name, 1, 4) == "Thug" then
+		            table.insert(bruh, n)
+		        end
+		    end
+		    return bruh
+		end
+		local v70 = p11.CFrame * v68;
+		local l__Size__71 = v69.Size;
+		l__Size__71 = l__Size__71 * r3multiper
+		if v69.Debug or l__LocalPlayer__1.Settings.HitboxDisplay.Value then
+			local v72 = Instance.new("Part");
+			v72.Size = l__Size__71;
+			v72.CFrame = v70;
+			v72.Transparency = 0;
+			v72.Anchored = true;
+			v72.CanCollide = false;
+			v72.CastShadow = false;
+			v72.Material = Enum.Material.ForceField;
+			v72.Color = Color3.new(1, 0, 0);
+			v72.Parent = workspace.Effects;
+			task.delay(0.5, function()
+				if v72 then
+					v72:Destroy();
+				end;
+			end);
+		end;
+		u9(v44, l__Character__43, {
+			Type = "Region3", 
+			CFrame = v70, 
+			Size = l__Size__71
+		});
+	elseif p10 == "Part" then
+		local v73, v74 = ...;
+		if not v73 then
+			v73 = CFrame.new();
+		end;
+		local v75 = p11.CFrame * v73;
+		local l__Size__76 = v74.Size;
+		local l__Part__77 = v74.Part;
+		if (v74.Debug or l__LocalPlayer__1.Settings.HitboxDisplay.Value) and not l__Part__77 then
+			local v78 = Instance.new("Part");
+			v78.Size = l__Size__76;
+			v78.CFrame = v75;
+			v78.Transparency = 0;
+			v78.Anchored = true;
+			v78.CanCollide = false;
+			v78.CastShadow = false;
+			v78.Material = Enum.Material.ForceField;
+			v78.Color = Color3.new(1, 0, 0);
+			v78.Parent = workspace.Effects;
+			l__Debris__4:AddItem(v78, 0.5);
+		end;
+		u9(v44, l__Character__43, {
+			Type = "Part", 
+			CFrame = v75, 
+			Size = l__Size__76, 
+			Part = l__Part__77
+		});
+	elseif p10 == "Collision" then
+		local v79, v80 = ...;
+		if not v79 or type(v79) ~= "number" then
+			v79 = 1;
+		end;
+		local v81 = u10.new({
+			Offset = v79, 
+			Blacklisted = { l__Character__43 }
+		});
+		v81:BindObject(p11, v80.AttachmentName and "DmgPoint");
+		v81.OnHit:Connect(function(p12)
+			if not table.find(v44, p12) then
+				table.insert(v44, p12);
+			end;
+		end);
+		local v82 = os.clock();
+		while true do
+			v81:CastHitbox();
+			wait();
+			if (v80.Amount and (1 / 0)) <= #v44 then
+				break;
+			end;
+			if v80.Time <= os.clock() - v82 then
+				break;
+			end;		
+		end;
+		v81:Destroy();
+		if v80.CreateAttribute then
+			l__Character__43:SetAttribute(v80.CreateAttribute.Name, true);
+			task.delay(v80.CreateAttribute.Timer and 0, function()
+				l__Character__43:SetAttribute(v80.CreateAttribute.Name, nil);
+			end);
+		end;
+	end;
+	return v44;
+end;
+
+local function chradded(chr)
+    pcall(function()
+        if game.Players.LocalPlayer.Data.Ability.Value == 3874 and enabled then
+            task.spawn(game:GetService("ReplicatedStorage").Remotes.InputFunc.InvokeServer, game:GetService("ReplicatedStorage").Remotes.InputFunc, "B")
+            task.wait(1)
+
+            local stands = game:GetService("ReplicatedStorage").Remotes.InventoryInfo:InvokeServer("GetItems", {
+                InventoryType = "AbilityInventory"
+            })
+    
+            for uuid, data in pairs(stands) do
+                game:GetService("ReplicatedStorage").Remotes.InventoryRemote:FireServer("AbilityInventory",{["Equip"] = true,["UUID"] = uuid,["ItemId"] = data.ItemId})
+                break
+            end
+            task.wait()
+            
+            stands = game:GetService("ReplicatedStorage").Remotes.InventoryInfo:InvokeServer("GetItems", {
+                InventoryType = "AbilityInventory"
+            })
+        
+            for uuid, data in pairs(stands) do
+                if data.ItemId == "ABILITY_3874" then
+                    game:GetService("ReplicatedStorage").Remotes.InventoryRemote:FireServer("AbilityInventory",{["Equip"] = true,["UUID"] = uuid,["ItemId"] = data.ItemId})
+                    break
+                end
+            end
+        end
+    end)
+end
+
+game:GetService("UserInputService").InputBegan:Connect(function(input) 
+    if input.KeyCode == Enum.KeyCode.Plus then
+        enabled = not enabled
+    end
+end)
+
+if game.Players.LocalPlayer.Character then
+    chradded(game.Players.LocalPlayer.Character)
+end
+game.Players.LocalPlayer.CharacterAdded:Connect(chradded)
