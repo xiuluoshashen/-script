@@ -2,7 +2,7 @@ wait(2)
 local UIS = game:GetService("UserInputService")
 local Cooldown = Instance.new("BoolValue")
 Cooldown.Parent = game.Workspace
-local User = "你的名字"
+local User = "xiuluoshasheng"
 local Player = game.Workspace.Living[User]
 local AAA = game.ReplicatedStorage["Client Assets"].Umbra.SovereignFX
 
