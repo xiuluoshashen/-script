@@ -202,7 +202,7 @@ sound.Looped = true
 sound:Play()
 
 -- 等待30秒
-wait(60)
+wait(45)
 
 -- 停止播放音乐
 sound:Stop()
