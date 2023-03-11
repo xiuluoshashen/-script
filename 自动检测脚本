@@ -18,6 +18,26 @@ game.StarterGui:SetCore("SendNotification",  {
  Button2 = "坚持科技创新落后就要挨打";
  Callback = NotificationBindable;
 })
+local function callback(Text)
+    if Text == "Button1 text" then
+     print ("Answer")
+   elseif Text == ("Button2 text") then
+    print ("Answer2")
+    end
+   end
+   
+   local NotificationBindable = Instance.new("BindableFunction")
+   NotificationBindable.OnInvoke = callback
+   
+   game.StarterGui:SetCore("SendNotification",  {
+    Title = "整合脚本由修罗杀神制作";
+    Text = "目前版本为BETA";
+    Icon = "";
+    Duration = 15;
+    Button1 = "KEY有一些要自己拿";
+    Button2 = "脚本失效火速联系我";
+    Callback = NotificationBindable;
+   })
 local games = {
     [189707] = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source","https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/NaturalDisasterSurvival.lua","https://raw.githubusercontent.com/1201for/V.G-Hub/main/V.Ghub"},
     [4282985734] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/cw%E4%BB%98%E8%B4%B9"},
@@ -33,6 +53,8 @@ local games = {
     [6872265039] = {"https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
     [621129760] = {"https://raw.githubusercontent.com/AkkGamerBoy/Axure-Hub/main/Axure%20Hub"},
     [5656754541] = {"https://raw.githubusercontent.com/KarmaPanda/Roblox/main/astd-aio.lua"},
+    [1224212277] = {"https://raw.githubusercontent.com/lKoPoJLb/Scripts/main/Loader.lua"},
+    [294790062] = {"https://raw.githubusercontent.com/pattingbabies/blora/main/titanicgui"},
 }
 
 local urls = games[game.PlaceId]
