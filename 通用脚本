@@ -1,9 +1,53 @@
+-- 创建一个 ScreenGui
+local gui = Instance.new("ScreenGui")
+gui.Enabled = true
+gui.IgnoreGuiInset = true
+gui.ResetOnSpawn = false
+gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+-- 创建一个 Frame
+local frame = Instance.new("Frame")
+frame.BackgroundColor3 = Color3.new(1, 1, 1)
+frame.BorderColor3 = Color3.new(0, 0, 0)
+frame.BorderSizePixel = 2
+frame.Position = UDim2.new(0.5, -150, 0.5, -100)
+frame.Size = UDim2.new(0, 300, 0, 200)
+frame.Parent = gui
+
+-- 创建一个 ImageLabel
+local imageLabel = Instance.new("ImageLabel")
+imageLabel.BackgroundTransparency = 1
+imageLabel.BorderSizePixel = 0
+imageLabel.Position = UDim2.new(0, 0, 0, 0)
+imageLabel.Size = UDim2.new(0, 100, 0, 100)
+imageLabel.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=4691740646&width=420&height=420&format=png"
+imageLabel.Parent = frame
+
+-- 创建一个 TextLabel
+local textLabel = Instance.new("TextLabel")
+textLabel.BackgroundTransparency = 1
+textLabel.BorderSizePixel = 0
+textLabel.Position = UDim2.new(0, 100, 0, 0)
+textLabel.Size = UDim2.new(1, -100, 1, 0)
+textLabel.Font = Enum.Font.SourceSans
+textLabel.Text = "欢迎使用脚本！"
+textLabel.TextColor3 = Color3.new(0, 0, 0)
+textLabel.TextScaled = true
+textLabel.TextWrapped = true
+textLabel.Parent = frame
+
+-- 将 ScreenGui 放在玩家的 PlayerGui 中
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+
+-- 等待一段时间后销毁 ScreenGui
+wait(8)
+gui:Destroy()
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
 function SendNotification(joinedPlayer)
     local playerName = joinedPlayer.Name
-    local notificationMessage = "注意! " .. playerName .. " 已加入游戏！"
+    local notificationMessage = "注意 " .. playerName .. " 已加入游戏！"
     local notificationIcon = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. joinedPlayer.UserId .. "&width=420&height=420&format=png"
 
     game:GetService("StarterGui"):SetCore("SendNotification", {
@@ -13,6 +57,10 @@ function SendNotification(joinedPlayer)
         Duration = 5
     })
 end
+
+Players.PlayerAdded:Connect(function(joinedPlayer)
+    SendNotification(joinedPlayer)
+end)
 local function callback(Text)
     if Text == "Button1 text" then
      print ("Answer")
@@ -177,32 +225,3 @@ local BreakinSection = Breakin:NewSection("Breakin脚本")
 BreakinSection:NewButton("全角色全物品获取)", "无", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Break%20in", true))()
 end)
--- 创建一个Sound对象
-local sound = Instance.new("Sound")
-sound.Parent = game.Workspace
-
--- 创建一个包含多个音乐ID的表
-local musicIds = {
-    "http://www.roblox.com/asset?id=1843514537",
-    "http://www.roblox.com/asset?id=9046864489",
-    "http://www.roblox.com/asset?id=9046863235",
-    -- 这里可以添加更多的音乐ID
-}
-
--- 从音乐ID表中随机选择一个音乐ID
-local randomMusicId = musicIds[math.random(1, #musicIds)]
-
--- 设置Sound对象的属性
-sound.Name = "Music"
-sound.SoundId = randomMusicId
-sound.Volume = 1
-sound.Looped = true
-
--- 播放音乐
-sound:Play()
-
--- 等待30秒
-wait(45)
-
--- 停止播放音乐
-sound:Stop()
