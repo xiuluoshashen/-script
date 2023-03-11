@@ -1,4 +1,3 @@
-
 local gui = Instance.new("ScreenGui")
 gui.Enabled = true
 gui.IgnoreGuiInset = true
