@@ -1,3 +1,18 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+function SendNotification(joinedPlayer)
+    local playerName = joinedPlayer.Name
+    local notificationMessage = "注意! " .. playerName .. " 已加入游戏！"
+    local notificationIcon = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. joinedPlayer.UserId .. "&width=420&height=420&format=png"
+
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "玩家加入",
+        Text = notificationMessage,
+        Icon = notificationIcon,
+        Duration = 5
+    })
+end
 local function callback(Text)
     if Text == "Button1 text" then
      print ("Answer")
