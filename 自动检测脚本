@@ -81,3 +81,32 @@ if urls then
         loadstring(game:HttpGet(url))()
     end
 end
+-- 创建一个Sound对象
+local sound = Instance.new("Sound")
+sound.Parent = game.Workspace
+
+-- 创建一个包含多个音乐ID的表
+local musicIds = {
+    "http://www.roblox.com/asset?id=1843514537",
+    "http://www.roblox.com/asset?id=9046864489",
+    "http://www.roblox.com/asset?id=9046863235",
+    -- 这里可以添加更多的音乐ID
+}
+
+-- 从音乐ID表中随机选择一个音乐ID
+local randomMusicId = musicIds[math.random(1, #musicIds)]
+
+-- 设置Sound对象的属性
+sound.Name = "Music"
+sound.SoundId = randomMusicId
+sound.Volume = 1
+sound.Looped = true
+
+-- 播放音乐
+sound:Play()
+
+-- 等待30秒
+wait(60)
+
+-- 停止播放音乐
+sound:Stop()
