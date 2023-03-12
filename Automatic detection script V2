@@ -160,7 +160,8 @@ local games = {
     [5656754541] = {"https://raw.githubusercontent.com/KarmaPanda/Roblox/main/astd-aio.lua"},
     [1224212277] = {"https://raw.githubusercontent.com/lKoPoJLb/Scripts/main/Loader.lua"},
     [294790062] = {"https://raw.githubusercontent.com/pattingbabies/blora/main/titanicgui"},
-    [6766156863] = {"https://raw.githubusercontent.com/ZaRdoOx/Ultra-Hub/main/Main","https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/StrongmanSimulator.lua","https://raw.githubusercontent.com/2567-rblx/scripts/main/Strongman/UGC%20Auto-Farm.lua"},
+    [6766156863] = {"https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/StrongmanSimulator.lua","https://raw.githubusercontent.com/2567-rblx/scripts/main/Strongman/UGC%20Auto-Farm.lua"},
+    [10023995823] = {"https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua","https://raw.githubusercontent.com/xiuluoshashen/-script/main/da%E5%90%8E%E5%B8%82anti%20cheat"},
 }
 
 local urls = games[game.PlaceId]
