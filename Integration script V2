@@ -242,19 +242,19 @@ local AUT = Window:NewTab("AUT")
 local AUTSection = AUT:NewSection("AUT脚本")
 
 
-AUTSection:NewButton("紫刀和咲夜无CD(禁止给外人不然赔偿我300块))", "紫刀G和咲夜E技能无冷却！！！", function()
+AUTSection:NewButton("紫刀和咲夜无CD(禁止给外人不然赔偿我300块)", "紫刀G和咲夜E技能无冷却！！！", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E6%97%A0CD"))()
 end)
 
-AUTSection:NewButton("AUT锁人GDMMOD)", "没有自动捡东西", function()
+AUTSection:NewButton("AUT锁人GDMMOD", "没有自动捡东西", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/MXS-Scripts/mxs-free/main/AUT.lua", true))()
 end)
 
-AUTSection:NewButton("紫刀觉醒)", "其他替身也可以", function()
+AUTSection:NewButton("紫刀觉醒", "其他替身也可以", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E8%A7%89%E9%86%92", true))()
 end)
 
-AUTSection:NewButton("XCHARA自动打THUG)", "刷金币", function()
+AUTSection:NewButton("XCHARA自动打THUG", "刷金币", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/XCHARA%E8%87%AA%E5%8A%A8", true))()
 end)
 
@@ -264,8 +264,18 @@ local Breakin = Window:NewTab("Breakin")
 local BreakinSection = Breakin:NewSection("Breakin脚本")
 
 
-BreakinSection:NewButton("全角色全物品获取)", "无", function()
+BreakinSection:NewButton("全角色全物品获取", "无", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Break%20in", true))()
+end)
+
+
+--Bedwars
+local Bedwars = Window:NewTab("起床战争")
+local BedwarsSection = Bedwars:NewSection("Vape v4脚本")
+
+
+BedwarsSection:NewButton("电子烟", "吸电子烟了。", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 end)
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
