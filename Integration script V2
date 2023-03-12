@@ -4,7 +4,9 @@ local allowedUsers = {
     "Logitechssdd",
     "Miisnoch",
     "hasudasff",
-    "businessman_L"
+    "businessman_L",
+    "xiuluoshashen",
+    "xxiangxiangx"
 }
  
 local player = game.Players.LocalPlayer
@@ -170,6 +172,10 @@ end)
 
 MainSection:NewButton("挂机防踢", "挂机游戏不会踢你出去", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
+end)
+
+MainSection:NewButton("自瞄脚本", "大部分游戏可用", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub"))()
 end)
 
 MainSection:NewButton("灯光强化", "大幅度提升你游戏亮度", function()
