@@ -144,7 +144,7 @@ local function callback(Text)
     Callback = NotificationBindable;
    })
 local games = {
-    [189707] = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source","https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/NaturalDisasterSurvival.lua"},
+    [189707] = {"https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source","https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/NaturalDisasterSurvival.lua","https://raw.githubusercontent.com/2dgeneralspam1/scripts-and-stuff/master/scripts/LoadstringUjHI6RQpz2o8"},
     [4282985734] = {"https://raw.githubusercontent.com/xiuluoshashen/-script/main/cw%E4%BB%98%E8%B4%B9"},
     [2866967438] = {"https://reddyhub.xyz/loader.html","https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2","https://raw.githubusercontent.com/xiuluoshashen/-script/main/FPS%E7%AA%81%E7%A0%B4"},
     [12389327869] = {"https://raw.githubusercontent.com/Bebo-Mods/BeboScripts/main/ContactA-888.lua","https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"},
