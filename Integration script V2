@@ -529,7 +529,7 @@ local WaitNumber = 500
 StarterGui:SetCore("SendNotification", {
     Title = "帧数已经提升！！",
     Text = "检测中" .. #Descendants .. " Instances...",
-    Duration = 15,
+    Duration = 25,
     Button1 = "好的"
 })
 warn("Checking " .. #Descendants .. " Instances...")
@@ -544,7 +544,7 @@ end
 StarterGui:SetCore("SendNotification", {
     Title = "帧数已经提升！！",
     Text = "FPS助推器加载!",
-    Duration = math.huge,
+    Duration = 45,
     Button1 = "谢谢你"
 })
 warn("FPS Booster Loaded!")
