@@ -292,7 +292,7 @@ end
 StarterGui:SetCore("SendNotification", {
     Title = "帧数已经提升！！",
     Text = "已加载完画质降低脚本",
-    Duration = math.huge,
+    Duration = 45,
     Button1 = "谢谢你！"
 })
 coroutine.wrap(pcall)(function()
