@@ -278,6 +278,20 @@ local BedwarsSection = Bedwars:NewSection("Vape v4脚本")
 BedwarsSection:NewButton("电子烟", "吸电子烟了。", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
 end)
+
+
+--da backrooms
+local dabackrooms = Window:NewTab("da backrooms")
+local dabackroomsSection = dabackrooms:NewSection("脚本")
+
+
+dabackroomsSection:NewButton("脚本", "无。", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua", true))()
+end)
+
+dabackroomsSection:NewButton("脚本", "无。", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/da%E5%90%8E%E5%B8%82anti%20cheat", true))()
+end)
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
 sound.Parent = game.Workspace
