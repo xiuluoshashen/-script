@@ -4,7 +4,6 @@ local allowedUsers = {
     "Logitechssdd",
     "Miisnoch",
     "hasudasff",
-    "businessman_L"
 }
  
 local player = game.Players.LocalPlayer
@@ -289,7 +288,7 @@ dabackroomsSection:NewButton("脚本", "无。", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua", true))()
 end)
 
-dabackroomsSection:NewButton("脚本", "无。", function()
+dabackroomsSection:NewButton("Anit Cheat", "绕过反作弊", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/da%E5%90%8E%E5%B8%82anti%20cheat", true))()
 end)
 -- 创建一个Sound对象
