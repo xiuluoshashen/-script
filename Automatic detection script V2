@@ -1,46 +1,89 @@
-local gui = Instance.new("ScreenGui")
-gui.Enabled = true
-gui.IgnoreGuiInset = true
-gui.ResetOnSpawn = false
-gui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+local allowedUsers = {
+    "xiuluoshasheng",
+    "Miissnoch",
+    "Logitechssdd",
+    "Miisnoch",
+    "hasudasff",
+}
+ 
+local player = game.Players.LocalPlayer
+ 
+local isAllowed = false
+for i, username in ipairs(allowedUsers) do
+    if player.Name == username then
+        isAllowed = true
+        break
+    end
+end
+ 
+if not isAllowed then
+    warn("你没有执行此脚本的权限。")
+    return
+end
+-- 创建屏幕Gui
+local CardSystemScreenGui = Instance.new("ScreenGui")
+ 
+-- 创建框架
+local CardSystem = Instance.new("Frame")
+ 
+-- 创建标题
+local Title = Instance.new("TextLabel")
 
+-- 创建图片
+local Image = Instance.new("ImageLabel")
 
-local frame = Instance.new("Frame")
-frame.BackgroundColor3 = Color3.new(1, 1, 1)
-frame.BorderColor3 = Color3.new(0, 0, 0)
-frame.BorderSizePixel = 2
-frame.Position = UDim2.new(0.5, -150, 0.5, -100)
-frame.Size = UDim2.new(0, 300, 0, 200)
-frame.Parent = gui
+-- 设置屏幕Gui
+CardSystemScreenGui.Name = "CardSystemScreenGui"
+CardSystemScreenGui.Parent = game.CoreGui
+ 
+-- 设置框架
+CardSystem.Name = "CardSystem"
+CardSystem.Parent = CardSystemScreenGui
+CardSystem.BackgroundTransparency = 0.5 -- 半透明
+CardSystem.BackgroundColor3 = Color3.fromHSV(0, 1, 1) -- 初始颜色为红色
+CardSystem.BorderSizePixel = 0
+CardSystem.Position = UDim2.new(0.5, -200, 0.5, -150)
+CardSystem.Size = UDim2.new(0, 400, 0, 300)
+ 
+-- 设置标题
+Title.Name = "Title"
+Title.Parent = CardSystem
+Title.BackgroundTransparency = 1 -- 文字半透明
+Title.Position = UDim2.new(0.5, -100, 0, 20)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "修罗杀神制作！你是白名单用户！！"
+Title.TextColor3 = Color3.new(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 20.000
+Title.TextWrapped = true
 
+-- 设置图片
+Image.Name = "Image"
+Image.Parent = CardSystem
+Image.BackgroundTransparency = 1 -- 图片透明背景
+Image.Position = UDim2.new(0.5, -50, 0.4, 0)
+Image.Size = UDim2.new(0, 100, 0, 100)
+Image.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=4691740646&width=420&height=420&format=png" -- 替换为图片的 asset id
 
-local imageLabel = Instance.new("ImageLabel")
-imageLabel.BackgroundTransparency = 1
-imageLabel.BorderSizePixel = 0
-imageLabel.Position = UDim2.new(0, 0, 0, 0)
-imageLabel.Size = UDim2.new(0, 100, 0, 100)
-imageLabel.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=4691740646&width=420&height=420&format=png"
-imageLabel.Parent = frame
+-- 初始颜色为红色
+local hue = 0
 
+-- 彩虹颜色变化函数
+local function rainbow()
+    hue = hue + 0.005 -- 每次增加 0.005
+    if hue >= 1 then hue = 0 end -- 超过 1 重置为 0
+    CardSystem.BackgroundColor3 = Color3.fromHSV(hue, 1, 1)
+end
 
-local textLabel = Instance.new("TextLabel")
-textLabel.BackgroundTransparency = 1
-textLabel.BorderSizePixel = 0
-textLabel.Position = UDim2.new(0, 100, 0, 0)
-textLabel.Size = UDim2.new(1, -100, 1, 0)
-textLabel.Font = Enum.Font.SourceSans
-textLabel.Text = "欢迎使用脚本！"
-textLabel.TextColor3 = Color3.new(0, 0, 0)
-textLabel.TextScaled = true
-textLabel.TextWrapped = true
-textLabel.Parent = frame
+-- 循环变化背景颜色
+game:GetService("RunService").RenderStepped:Connect(function()
+    rainbow()
+end)
 
-
-gui.Parent = game.Players.LocalPlayer.PlayerGui
-
-
-wait(10)
-gui:Destroy()
+-- 等待 5 秒后销毁 GUI
+wait(8)
+CardSystemScreenGui:Destroy()
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
