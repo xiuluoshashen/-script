@@ -146,47 +146,72 @@ local function callback(Text)
     Button2 = "脚本失效火速联系我";
     Callback = NotificationBindable;
    })
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
-local Window = Library.CreateLib("修罗杀神制作", "Ocean")
+getgenv().LibTheme = {
+    MainColor = Color3.fromRGB(35,35,40);
+    BrighterMainColor = Color3.fromRGB(40,40,45);
+    IconsColor = Color3.fromRGB(100,100,120);
+    Accent = Color3.fromRGB(0,100,255);
+    DarkText = Color3.fromRGB(170,170,170);
+    BrightText = Color3.fromRGB(145,145,145);
+    Font = "Gotham";
+    SoundVolume = 0.5;
+    HideKey = "LeftAlt"
+}
 
--- MIAN
-local Main = Window:NewTab("主页面")
-local MainSection = Main:NewSection("脚本")
+local Library = loadstring(game:HttpGet("https://github.com/slf0Dev/Ocerium_Project/raw/main/Ocerium%20Special%20ui"))()
 
+local Main = Library.Main("Ocerium")
 
-MainSection:NewButton("通用管理员(iy)", "没有简介", function()
+local Page = Main.Page("通用脚本","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("脚本页面")
+
+local Toggle = Section.Component("Toggle","管理员",function(bool)
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+  
+end,false)
 
-MainSection:NewButton("更酷的客户端界面", "修改你的客户端页面不会被BAN", function()
+local Toggle = Section.Component("Toggle","客户端",function(bool)
     loadstring(game:HttpGet("https://eternityhub.xyz/BetterRoblox/Loader"))()
-end)
+  
+end,false)
 
-MainSection:NewButton("自动翻译(仅限老uiroblox聊天框)", ">d是取消翻译>加国家简写翻译比如>en就是自动翻译成英语", function()
+local Toggle = Section.Component("Toggle","翻译",function(bool)
     loadstring(game:HttpGetAsync('https://i.qts.life/r/ChatInlineTranslator.lua', true))()
-end)
+  
+end,false)
 
-MainSection:NewButton("抓包脚本", "抓取游戏代码", function()
+local Toggle = Section.Component("Toggle","抓包",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
-end)
+  
+end,false)
 
-MainSection:NewButton("挂机防踢", "挂机游戏不会踢你出去", function()
+local Toggle = Section.Component("Toggle","挂机防踢",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
-end)
+  
+end,false)
 
-MainSection:NewButton("自瞄脚本", "大部分游戏可用", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub"))()
-end)
-
-MainSection:NewButton("FPS强化", "降低画质强化FPS!", function()
+local Toggle = Section.Component("Toggle","FPS强化",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/FPS%E7%AA%81%E7%A0%B4"))()
-end)
+  
+end,false)
 
-MainSection:NewButton("灯光强化", "大幅度提升你游戏亮度", function()
+local Toggle = Section.Component("Toggle","自瞄",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub"))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","高亮",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%81%AF%E5%85%89%E5%BC%BA%E5%8C%96"))()
-end)
+  
+end,false)
 
-MainSection:NewButton("TP工具", "获得TP工具随便传送人", function()
+local Toggle = Section.Component("Toggle","狙击",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","TP工具",function(bool)
     mouse = game.Players.LocalPlayer:GetMouse()
 tool = Instance.new("Tool")
 tool.RequiresHandle = false
@@ -197,13 +222,10 @@ pos = CFrame.new(pos.X,pos.Y,pos.Z)
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
 end)
 tool.Parent = game.Players.LocalPlayer.Backpack
-end)
+    
+end,false)
 
-MainSection:NewButton("狙击脚本", "狙击别人", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
-end)
-
-MainSection:NewButton("服务器传送", "传送到其他服务器", function()
+local Toggle = Section.Component("Toggle","服务器传送",function(bool)
     local Http = game:GetService("HttpService")
 local TPS = game:GetService("TeleportService")
 local Api = "https://games.roblox.com/v1/games/"
@@ -223,85 +245,54 @@ repeat
 until Server
 
 TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
+  
+end,false)
+
+local Logs = Main.Logs("修罗杀神私人定制")
+
+local log1 = Logs.LogWithButtons("不售卖禁止外传,仅限自己人使用,UI作者:Ocerium")
+
+local logbutton = log1.Button("OKOK",function()
+
 end)
 
+local Page = Main.Page("AUT","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
---LOCAL PLAYER
-local Player = Window:NewTab("玩家状态")
-local PlayerSection = Player:NewSection("速度和跳跃")
+local Section = Page.Section("脚本页面")
 
-PlayerSection:NewSlider("行走速度", "速度！！", 500, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-end)
-
-PlayerSection:NewSlider("跳跃力量", "跳啊！！", 500, 50, function(s) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-end)
-
-
---gg
-local Other = Window:NewTab("快捷方式")
-local OtherSection = Other:NewSection("关闭脚本key")
-
-OtherSection:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.K, function()
-	Library:ToggleUI()
-end)
-
-
---aut
-local AUT = Window:NewTab("AUT")
-local AUTSection = AUT:NewSection("AUT脚本")
-
-
-AUTSection:NewButton("紫刀和咲夜无CD(禁止给外人不然赔偿我300块)", "紫刀G和咲夜E技能无冷却！！！", function()
+local Toggle = Section.Component("Toggle","紫刀和咲夜无冷却",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E6%97%A0CD"))()
-end)
+  
+end,false)
 
-AUTSection:NewButton("AUT锁人GDMMOD", "没有自动捡东西", function()
+local Toggle = Section.Component("Toggle","锁人+GODMOD",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/MXS-Scripts/mxs-free/main/AUT.lua", true))()
-end)
+  
+end,false)
 
-AUTSection:NewButton("紫刀觉醒", "其他替身也可以", function()
+local Toggle = Section.Component("Toggle","紫刀觉醒",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E8%A7%89%E9%86%92", true))()
-end)
+  
+end,false)
 
-AUTSection:NewButton("XCHARA自动打THUG", "刷金币", function()
+local Toggle = Section.Component("Toggle","XCHARA自动打怪",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/XCHARA%E8%87%AA%E5%8A%A8", true))()
-end)
+  
+end,false)
 
+local Page = Main.Page("战斗游戏","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
---Break in
-local Breakin = Window:NewTab("Breakin")
-local BreakinSection = Breakin:NewSection("Breakin脚本")
+local Section = Page.Section("脚本页面")
 
+local Toggle = Section.Component("Toggle","BB脚本",function(bool)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub'))()
+  
+end,false)
 
-BreakinSection:NewButton("全角色全物品获取", "无", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Break%20in", true))()
-end)
-
-
---Bedwars
-local Bedwars = Window:NewTab("起床战争")
-local BedwarsSection = Bedwars:NewSection("Vape v4脚本")
-
-
-BedwarsSection:NewButton("电子烟", "吸电子烟了。", function()
+local Toggle = Section.Component("Toggle","起床脚本",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
-end)
-
-
---da backrooms
-local dabackrooms = Window:NewTab("da backrooms")
-local dabackroomsSection = dabackrooms:NewSection("脚本")
-
-
-dabackroomsSection:NewButton("脚本", "无。", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua", true))()
-end)
-
-dabackroomsSection:NewButton("Anit Cheat", "绕过反作弊", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/da%E5%90%8E%E5%B8%82anti%20cheat", true))()
-end)
+  
+end,false)
 
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
