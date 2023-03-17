@@ -418,6 +418,8 @@ local games = {
     [1224212277] = {"https://raw.githubusercontent.com/lKoPoJLb/Scripts/main/Loader.lua"},
     [294790062] = {"https://raw.githubusercontent.com/pattingbabies/blora/main/titanicgui"},
     [6766156863] = {"https://raw.githubusercontent.com/CasperFlyModz/discord.gg-rips/main/StrongmanSimulator.lua","https://raw.githubusercontent.com/2567-rblx/scripts/main/Strongman/UGC%20Auto-Farm.lua"},
+    [8260276694] = {"https://raw.githubusercontent.com/CrapTheKid/Ability-Wars-Script/main/Ability%20Wars","https://raw.githubusercontent.com/castycheck/ok/main/Protected%20(48).lua"},
+    [263761432] = {"https://paste.ee/r/GzZjj"},
 }
 
 local urls = games[game.PlaceId]
