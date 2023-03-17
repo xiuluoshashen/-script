@@ -1,0 +1,332 @@
+local allowedUsers = {
+    "xiuluoshasheng",
+    "Miissnoch",
+    "Logitechssdd",
+    "Miisnoch",
+    "hasudasff",
+    "businessman_L",
+    "xiuluoshashen",
+    "xxiangxiangx"
+}
+ 
+local player = game.Players.LocalPlayer
+ 
+local isAllowed = false
+for i, username in ipairs(allowedUsers) do
+    if player.Name == username then
+        isAllowed = true
+        break
+    end
+end
+ 
+if not isAllowed then
+    warn("你没有执行此脚本的权限。")
+    return
+end
+-- 创建屏幕Gui
+local CardSystemScreenGui = Instance.new("ScreenGui")
+ 
+-- 创建框架
+local CardSystem = Instance.new("Frame")
+ 
+-- 创建标题
+local Title = Instance.new("TextLabel")
+
+-- 创建图片
+local Image = Instance.new("ImageLabel")
+
+-- 设置屏幕Gui
+CardSystemScreenGui.Name = "CardSystemScreenGui"
+CardSystemScreenGui.Parent = game.CoreGui
+ 
+-- 设置框架
+CardSystem.Name = "CardSystem"
+CardSystem.Parent = CardSystemScreenGui
+CardSystem.BackgroundTransparency = 0.5 -- 半透明
+CardSystem.BackgroundColor3 = Color3.fromHSV(0, 1, 1) -- 初始颜色为红色
+CardSystem.BorderSizePixel = 0
+CardSystem.Position = UDim2.new(0.5, -200, 0.5, -150)
+CardSystem.Size = UDim2.new(0, 400, 0, 300)
+ 
+-- 设置标题
+Title.Name = "Title"
+Title.Parent = CardSystem
+Title.BackgroundTransparency = 1 -- 文字半透明
+Title.Position = UDim2.new(0.5, -100, 0, 20)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.SourceSansBold
+Title.Text = "修罗杀神制作！你是白名单用户！！"
+Title.TextColor3 = Color3.new(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 20.000
+Title.TextWrapped = true
+
+-- 设置图片
+Image.Name = "Image"
+Image.Parent = CardSystem
+Image.BackgroundTransparency = 1 -- 图片透明背景
+Image.Position = UDim2.new(0.5, -50, 0.4, 0)
+Image.Size = UDim2.new(0, 100, 0, 100)
+Image.Image = "https://www.roblox.com/asset-thumbnail/image?assetId=4691740646&width=420&height=420&format=png" -- 替换为图片的 asset id
+
+-- 初始颜色为红色
+local hue = 0
+
+-- 彩虹颜色变化函数
+local function rainbow()
+    hue = hue + 0.005 -- 每次增加 0.005
+    if hue >= 1 then hue = 0 end -- 超过 1 重置为 0
+    CardSystem.BackgroundColor3 = Color3.fromHSV(hue, 1, 1)
+end
+
+-- 循环变化背景颜色
+game:GetService("RunService").RenderStepped:Connect(function()
+    rainbow()
+end)
+
+-- 等待 5 秒后销毁 GUI
+wait(8)
+CardSystemScreenGui:Destroy()
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+function SendNotification(joinedPlayer)
+    local playerName = joinedPlayer.Name
+    local notificationMessage = "注意 " .. playerName .. " 已加入游戏！"
+    local notificationIcon = "https://www.roblox.com/headshot-thumbnail/image?userId=" .. joinedPlayer.UserId .. "&width=420&height=420&format=png"
+
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "玩家加入",
+        Text = notificationMessage,
+        Icon = notificationIcon,
+        Duration = 5
+    })
+end
+
+Players.PlayerAdded:Connect(function(joinedPlayer)
+    SendNotification(joinedPlayer)
+end)
+local function callback(Text)
+    if Text == "Button1 text" then
+     print ("Answer")
+   elseif Text == ("Button2 text") then
+    print ("Answer2")
+    end
+   end
+   
+   local NotificationBindable = Instance.new("BindableFunction")
+   NotificationBindable.OnInvoke = callback
+   
+   game.StarterGui:SetCore("SendNotification",  {
+    Title = "整合脚本由修罗杀神制作";
+    Text = "无法加载脚本是因为脚本失效或者我没有加";
+    Icon = "";
+    Duration = 15;
+    Button1 = "禁止宣传给外人";
+    Button2 = "坚持科技创新落后就要挨打";
+    Callback = NotificationBindable;
+   })
+ local function callback(Text)
+    if Text == "Button1 text" then
+     print ("Answer")
+   elseif Text == ("Button2 text") then
+    print ("Answer2")
+    end
+   end
+   
+   local NotificationBindable = Instance.new("BindableFunction")
+   NotificationBindable.OnInvoke = callback
+   
+   game.StarterGui:SetCore("SendNotification",  {
+    Title = "整合脚本由修罗杀神制作";
+    Text = "目前版本为BETA";
+    Icon = "";
+    Duration = 15;
+    Button1 = "KEY有一些要自己拿";
+    Button2 = "脚本失效火速联系我";
+    Callback = NotificationBindable;
+   })
+getgenv().LibTheme = {
+    MainColor = Color3.fromRGB(200,200,235);
+    BrighterMainColor = Color3.fromRGB(215,215,245);
+    IconsColor = Color3.fromRGB(100,100,120);
+    Accent = Color3.fromRGB(0,100,255);
+    DarkText = Color3.fromRGB(75,75,75);
+    BrightText = Color3.fromRGB(50,50,50);
+    Font = "Gotham";
+    SoundVolume = 0.5;
+    HideKey = "LeftAlt"
+}
+
+local Library = loadstring(game:HttpGet("https://github.com/slf0Dev/Ocerium_Project/raw/main/Ocerium%20Special%20ui"))()
+
+local Main = Library.Main("Ocerium")
+
+local Page = Main.Page("通用脚本","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("脚本页面")
+
+local Button = Section.Component("Button","管理员",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+  
+end,false)
+
+local Button = Section.Component("Button","更好客户端",function()
+    loadstring(game:HttpGet("https://eternityhub.xyz/BetterRoblox/Loader"))()
+  
+end,false)
+
+local Button = Section.Component("Button","翻译",function()
+    loadstring(game:HttpGetAsync('https://i.qts.life/r/ChatInlineTranslator.lua', true))()
+  
+end,false)
+
+local Button = Section.Component("Button","抓包",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+  
+end,false)
+
+local Button = Section.Component("Button","挂机防踢",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
+  
+end,false)
+
+local Button = Section.Component("Button","FPS强化",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/FPS%E7%AA%81%E7%A0%B4"))()
+  
+end,false)
+
+local Button = Section.Component("Button","通用自瞄",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub"))()
+  
+end,false)
+
+local Button = Section.Component("Button","视角高亮",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%81%AF%E5%85%89%E5%BC%BA%E5%8C%96"))()
+  
+end,false)
+
+local Button = Section.Component("Button","狙击工具",function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
+  
+end,false)
+
+local Button = Section.Component("Button","TP工具",function()
+    mouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+    
+end,false)
+
+local Button = Section.Component("Button","服务器传送",function()
+    local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+local _place = game.PlaceId
+local _servers = Api .. _place .. "/servers/Public?sortOrder=Asc&limit=100"
+
+function ListServers(cursor)
+    local Raw = game:HttpGet(_servers .. ((cursor and "&cursor=" .. cursor) or ""))
+    return Http:JSONDecode(Raw)
+end
+
+local Server, Next;
+repeat
+    local Servers = ListServers(Next)
+    Server = Servers.data[1]
+    Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
+  
+end,false)
+
+local Logs = Main.Logs("修罗杀神私人定制(Owner版本)")
+
+local log1 = Logs.LogWithButtons("不售卖禁止外传,仅限自己人使用,UI作者:Ocerium")
+local log1 = Logs.LogWithButtons("既然你选择了开脚本,就要做好被ban的准备,别到时候被ban来找我问题")
+
+local logbutton = log1.Button("OKOK",function()
+
+end)
+
+local Page = Main.Page("AUT","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("脚本页面")
+
+local Toggle = Section.Component("Toggle","紫刀和咲夜无冷却",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E6%97%A0CD"))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","锁人+GODMOD",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/MXS-Scripts/mxs-free/main/AUT.lua", true))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","紫刀觉醒",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E8%A7%89%E9%86%92", true))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","XCHARA自动打怪",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/XCHARA%E8%87%AA%E5%8A%A8", true))()
+  
+end,false)
+
+local Page = Main.Page("战斗游戏","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("脚本页面")
+
+local Toggle = Section.Component("Toggle","BB脚本",function(bool)
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub'))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","起床脚本",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+  
+end,false)
+
+-- 创建一个Sound对象
+local sound = Instance.new("Sound")
+sound.Parent = game.Workspace
+
+-- 创建一个包含多个音乐ID的表
+local musicIds = {
+    "http://www.roblox.com/asset?id=1843514537",
+    "http://www.roblox.com/asset?id=9046864489",
+    "http://www.roblox.com/asset?id=9046863235",
+    "http://www.roblox.com/asset?id=5410086218",
+    "http://www.roblox.com/asset?id=5410082346",
+    "http://www.roblox.com/asset?id=1843497734",
+    "http://www.roblox.com/asset?id=142376088",
+    "http://www.roblox.com/asset?id=5409360995",
+    "http://www.roblox.com/asset?id=1845554017",
+    -- 这里可以添加更多的音乐ID
+}
+
+-- 从音乐ID表中随机选择一个音乐ID
+local randomMusicId = musicIds[math.random(1, #musicIds)]
+
+-- 设置Sound对象的属性
+sound.Name = "Music"
+sound.SoundId = randomMusicId
+sound.Volume = 1
+sound.Looped = true
+
+-- 播放音乐
+sound:Play()
+
+-- 等待30秒
+wait(250)
+
+-- 停止播放音乐
+sound:Stop()
