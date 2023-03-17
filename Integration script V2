@@ -166,52 +166,52 @@ local Page = Main.Page("通用脚本","3926305904",Vector2.new(924, 204),Vector2
 
 local Section = Page.Section("脚本页面")
 
-local Toggle = Section.Component("Toggle","管理员",function(bool)
+local Button = Section.Component("Button","管理员",function()
     loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","客户端",function(bool)
+local Button = Section.Component("Button","更好客户端",function()
     loadstring(game:HttpGet("https://eternityhub.xyz/BetterRoblox/Loader"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","翻译",function(bool)
+local Button = Section.Component("Button","翻译",function()
     loadstring(game:HttpGetAsync('https://i.qts.life/r/ChatInlineTranslator.lua', true))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","抓包",function(bool)
+local Button = Section.Component("Button","抓包",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","挂机防踢",function(bool)
+local Button = Section.Component("Button","挂机防踢",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","FPS强化",function(bool)
+local Button = Section.Component("Button","FPS强化",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/FPS%E7%AA%81%E7%A0%B4"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","自瞄",function(bool)
+local Button = Section.Component("Button","通用自瞄",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/Parvus%20Hub"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","高亮",function(bool)
+local Button = Section.Component("Button","视角高亮",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%81%AF%E5%85%89%E5%BC%BA%E5%8C%96"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","狙击",function(bool)
+local Button = Section.Component("Button","狙击工具",function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
   
 end,false)
 
-local Toggle = Section.Component("Toggle","TP工具",function(bool)
+local Button = Section.Component("Button","TP工具",function()
     mouse = game.Players.LocalPlayer:GetMouse()
 tool = Instance.new("Tool")
 tool.RequiresHandle = false
@@ -225,7 +225,7 @@ tool.Parent = game.Players.LocalPlayer.Backpack
     
 end,false)
 
-local Toggle = Section.Component("Toggle","服务器传送",function(bool)
+local Button = Section.Component("Button","服务器传送",function()
     local Http = game:GetService("HttpService")
 local TPS = game:GetService("TeleportService")
 local Api = "https://games.roblox.com/v1/games/"
@@ -248,9 +248,10 @@ TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
   
 end,false)
 
-local Logs = Main.Logs("修罗杀神私人定制")
+local Logs = Main.Logs("修罗杀神私人定制(V2版本)")
 
 local log1 = Logs.LogWithButtons("不售卖禁止外传,仅限自己人使用,UI作者:Ocerium")
+local log1 = Logs.LogWithButtons("既然你选择了开脚本,就要做好被ban的准备,别到时候被ban来找我问题")
 
 local logbutton = log1.Button("OKOK",function()
 
