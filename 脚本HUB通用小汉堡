@@ -1,12 +1,5 @@
 local allowedUsers = {
-    "xiuluoshasheng",
-    "Miissnoch",
-    "Logitechssdd",
-    "Miisnoch",
-    "hasudasff",
-    "businessman_L",
-    "xiuluoshashen",
-    "xxiangxiangx"
+    "Miissnoch"
 }
  
 local player = game.Players.LocalPlayer
@@ -85,7 +78,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 end)
 
 -- 等待 5 秒后销毁 GUI
-wait(8)
+wait(10)
 CardSystemScreenGui:Destroy()
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
@@ -248,7 +241,7 @@ TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
   
 end,false)
 
-local Logs = Main.Logs("修罗杀神私人定制(V2无阉割版本)")
+local Logs = Main.Logs("修罗杀神私人定制(V2小汉堡版本)")
 
 local log1 = Logs.LogWithButtons("不售卖禁止外传,仅限自己人使用,UI作者:Ocerium")
 local log1 = Logs.LogWithButtons("既然你选择了开脚本,就要做好被ban的准备,别到时候被ban来找我问题")
