@@ -288,6 +288,16 @@ local Toggle = Section.Component("Toggle","起床脚本",function(bool)
   
 end,false)
 
+local Toggle = Section.Component("Toggle","da backroom",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua", true))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","da backroom绕过反作弊",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/da%E5%90%8E%E5%B8%82anti%20cheat", true))()
+  
+end,false)
+
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
 sound.Parent = game.Workspace
