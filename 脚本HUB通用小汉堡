@@ -1,5 +1,6 @@
 local allowedUsers = {
     "Miissnoch"
+    "wSnidsie_w"
 }
  
 local player = game.Players.LocalPlayer
