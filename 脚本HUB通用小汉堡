@@ -298,6 +298,11 @@ local Toggle = Section.Component("Toggle","da backroom脚本2",function(bool)
   
 end,false)
 
+local Toggle = Section.Component("Toggle","da backroom脚本3",function(bool)
+    loadstring(game:HttpGet('https://garfieldscripts.xyz/scripts/shrek-backroom.lua'))()
+  
+end,false)
+
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
 sound.Parent = game.Workspace
