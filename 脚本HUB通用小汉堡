@@ -288,8 +288,13 @@ local Toggle = Section.Component("Toggle","起床脚本",function(bool)
   
 end,false)
 
-local Toggle = Section.Component("Toggle","da backroom",function(bool)
+local Toggle = Section.Component("Toggle","da backroom脚本1",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Asphronium/Da-Craprooms/main/Main.lua", true))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","da backroom脚本2",function(bool)
+    loadstring(game:HttpGet("https://lkhub.net/s/loader.lua"))()
   
 end,false)
 
