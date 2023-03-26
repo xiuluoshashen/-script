@@ -1,22 +1,3 @@
-local allowedUsers = {
-    "Miissnoch"
-    "wSnidsie_w"
-}
- 
-local player = game.Players.LocalPlayer
- 
-local isAllowed = false
-for i, username in ipairs(allowedUsers) do
-    if player.Name == username then
-        isAllowed = true
-        break
-    end
-end
- 
-if not isAllowed then
-    warn("你没有执行此脚本的权限。")
-    return
-end
 -- 创建屏幕Gui
 local CardSystemScreenGui = Instance.new("ScreenGui")
  
