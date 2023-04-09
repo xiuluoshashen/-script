@@ -244,6 +244,11 @@ loadstring(game:HttpGet(("https://raw.githubusercontent.com/VoidGaster/Scripts/m
   
 end,false)
 
+local Toggle = Section.Component("Toggle","自动打怪gui",function(bool)
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/XO-3S-CL-VCK-jf-3HDM/Enhanced-Software/main/Loader.lua"))()
+  
+end,false)
+
 local Toggle = Section.Component("Toggle","紫刀觉醒",function(bool)
     loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%B4%AB%E5%88%80%E8%A7%89%E9%86%92", true))()
   
