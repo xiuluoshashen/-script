@@ -294,15 +294,15 @@ sound.Parent = game.Workspace
 
 -- 创建一个包含多个音乐ID的表
 local musicIds = {
-    "http://www.roblox.com/asset?id=1843514537",
-    "http://www.roblox.com/asset?id=9046864489",
-    "http://www.roblox.com/asset?id=9046863235",
-    "http://www.roblox.com/asset?id=5410086218",
-    "http://www.roblox.com/asset?id=5410082346",
-    "http://www.roblox.com/asset?id=1843497734",
-    "http://www.roblox.com/asset?id=142376088",
+    "http://www.roblox.com/asset?id=1848220673",
+    "http://www.roblox.com/asset?id=1841968569",
+    "http://www.roblox.com/asset?id=9045842948",
+    "http://www.roblox.com/asset?id=1842017488",
+    "http://www.roblox.com/asset?id=9045885435",
+    "http://www.roblox.com/asset?id=9042195674",
+    "http://www.roblox.com/asset?id=9042196207",
     "http://www.roblox.com/asset?id=5409360995",
-    "http://www.roblox.com/asset?id=1845554017",
+    "http://www.roblox.com/asset?id=9045837989",
     -- 这里可以添加更多的音乐ID
 }
 
