@@ -152,7 +152,7 @@ local Button = Section.Component("Button","更好客户端",function()
 end,false)
 
 local Button = Section.Component("Button","翻译",function()
-    loadstring(game:HttpGetAsync('https://i.qts.life/r/ChatInlineTranslator.lua', true))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E8%87%AA%E5%8A%A8%E7%BF%BB%E8%AF%91"))()
   
 end,false)
 
