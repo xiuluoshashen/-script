@@ -269,8 +269,8 @@ local Toggle = Section.Component("Toggle","紫刀觉醒",function(bool)
   
 end,false)
 
-local Toggle = Section.Component("Toggle","XCHARA自动打怪",function(bool)
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/XCHARA%E8%87%AA%E5%8A%A8", true))()
+local Toggle = Section.Component("Toggle","自动打boss",function(bool)
+	    loadstring(game:HttpGet("https://raw.githubusercontent.com/XO-3S-CL-VCK-jf-3HDM/Enhanced-Software/main/Loader.lua"))()
   
 end,false)
 
