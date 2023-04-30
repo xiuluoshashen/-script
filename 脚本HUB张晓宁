@@ -250,7 +250,7 @@ local logbutton = log1.Button("OKOK",function()
 
 end)
 
-local Page = Main.Page("AUT","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+local Page = Main.Page("AUT和其他jojo","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
 local Section = Page.Section("脚本页面")
 
@@ -273,6 +273,17 @@ local Toggle = Section.Component("Toggle","自动打boss",function(bool)
 	    loadstring(game:HttpGet("https://raw.githubusercontent.com/XO-3S-CL-VCK-jf-3HDM/Enhanced-Software/main/Loader.lua"))()
   
 end,false)
+
+local Toggle = Section.Component("Toggle","SA挂机",function(bool)
+	    loadstring(game:HttpGet("https://raw.githubusercontent.com/BadScripters/CloudHub/main/hub"))()
+  
+end,false)
+
+local Toggle = Section.Component("Toggle","SA打boss",function(bool)
+	   loadstring(game:HttpGet(('https://raw.githubusercontent.com/itsyouranya/free/main/Anya%20Stands%20Awakening%20Helper.lua'),true))()
+  
+end,false)
+	  
 
 local Page = Main.Page("战斗游戏","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
 
