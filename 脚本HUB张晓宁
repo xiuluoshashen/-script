@@ -48,7 +48,7 @@ Title.BackgroundTransparency = 1 -- 文字半透明
 Title.Position = UDim2.new(0.5, -100, 0, 20)
 Title.Size = UDim2.new(0, 200, 0, 50)
 Title.Font = Enum.Font.SourceSansBold
-Title.Text = "修罗杀神制作！检测成功！你居然是张晓宁？？！"
+Title.Text = "修罗杀神制作！检测成功！你居然是张晓宁是😱😱？？！"
 Title.TextColor3 = Color3.new(0, 0, 0)
 Title.TextScaled = true
 Title.TextSize = 20.000
@@ -241,7 +241,7 @@ TPS:TeleportToPlaceInstance(_place, Server.id, game.Players.LocalPlayer)
   
 end,false)
 
-local Logs = Main.Logs("修罗杀神私人定制(V2张晓宁版本)")
+local Logs = Main.Logs("修罗杀神私人定制(V2张晓宁版本是😭😭😭)")
 
 local log1 = Logs.LogWithButtons("不售卖禁止外传,仅限自己人使用,UI作者:Ocerium")
 local log1 = Logs.LogWithButtons("既然你选择了开脚本,就要做好被ban的准备,别到时候被ban来找我问题")
