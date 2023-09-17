@@ -325,6 +325,15 @@ local Button = Section.Component("Button","获得苹果",function()
    
 end,false)
 
+local Button = Section.Component("Button","获得可乐",function()
+local args = {
+    [1] = "BloxyCola"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("GiveTool"):FireServer(unpack(args))
+   
+end,false)
+
 local Button = Section.Component("Button","治疗全部人",function()
     local args = {
         [1] = "HealAll"
