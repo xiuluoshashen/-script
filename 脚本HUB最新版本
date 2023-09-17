@@ -288,6 +288,168 @@ local Toggle = Section.Component("Toggle","起床脚本",function(bool)
   
 end,false)
 
+local Page = Main.Page("break in 2","3926305904",Vector2.new(924, 204),Vector2.new(36, 36))
+
+local Section = Page.Section("脚本页面")
+
+local Button = Section.Component("Button","提升速度",function()
+    local args = {
+        [1] = "Speed"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RainbowWhatStat"):FireServer(unpack(args))
+  
+end,false)
+
+local Button = Section.Component("Button","提升力量",function()
+    local args = {
+        [1] = "Strength"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("RainbowWhatStat"):FireServer(unpack(args))
+
+end,false)
+
+local Button = Section.Component("Button","获得曲奇",function()
+     local args = {
+        [1] = "Cookie"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("GiveTool"):FireServer(unpack(args))
+    
+end,false)
+
+local Button = Section.Component("Button","获得苹果",function()
+    local args = {
+       [1] = "Apple"
+   }
+   
+   game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("GiveTool"):FireServer(unpack(args))
+   
+end,false)
+
+local Button = Section.Component("Button","治疗全部人",function()
+    local args = {
+        [1] = "HealAll"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PhoneAction"):FireServer(unpack(args))
+    
+end,false)
+
+local Button = Section.Component("Button","获得护甲",function()
+    local args = {
+        [1] = 3,
+        [2] = "Armor2",
+        [3] = "Armor",
+        [4] = "xiuluoshasheng",
+        [6] = 2
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得绿色可乐",function()
+    local args = {
+        [1] = 3,
+        [2] = "ExpiredBloxyCola",
+        [3] = "Drinks",
+        [4] = "xiuluoshasheng",
+        [6] = 12
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得钱",function()
+    local args = {
+        [1] = "Money"
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("PhoneAction"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得黄金披萨",function()
+    local args = {
+        [1] = 7,
+        [2] = workspace:WaitForChild("OnTable"):WaitForChild("GoldPizza")
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("OutsideFood"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得薯片",function()
+    local args = {
+        [1] = 3,
+        [2] = "Chips",
+        [3] = "Food",
+        [4] = "Miissnoch",
+        [6] = 21
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得Hammer",function()
+    local args = {
+        [1] = 3,
+        [2] = "Hammer",
+        [3] = "Weapons",
+        [4] = "xiuluoshasheng",
+        [6] = 31
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得Wrench",function()
+    local args = {
+        [1] = 3,
+        [2] = "Wrench",
+        [3] = "Weapons",
+        [4] = "xiuluoshasheng",
+        [6] = 31
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得Bat",function()
+    local args = {
+        [1] = 3,
+        [2] = "Bat",
+        [3] = "Weapons",
+        [4] = "xiuluoshasheng",
+        [6] = 31
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得Broom",function()
+    local args = {
+        [1] = 3,
+        [2] = "Broom",
+        [3] = "Weapons",
+        [4] = "xiuluoshasheng",
+        [6] = 31
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
+local Button = Section.Component("Button","获得Pitchfork",function()
+    local args = {
+        [1] = 3,
+        [2] = "Pitchfork",
+        [3] = "Weapons",
+        [4] = "xiuluoshasheng",
+        [6] = 31
+    }
+    
+    game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Vending"):FireServer(unpack(args))
+end,false)
+
 -- 创建一个Sound对象
 local sound = Instance.new("Sound")
 sound.Parent = game.Workspace
