@@ -148,7 +148,7 @@ getgenv().LibTheme = {
     BrightText = Color3.fromRGB(145,145,145);
     Font = "Gotham";
     SoundVolume = 0.5;
-    HideKey = "RightAlt"
+    HideKey = "Home"
 }
 
 local Library = loadstring(game:HttpGet("https://github.com/slf0Dev/Ocerium_Project/raw/main/Ocerium%20Special%20ui"))()
