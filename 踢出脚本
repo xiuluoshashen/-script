@@ -1,0 +1,4 @@
+for _,v in pairs(game.Players:GetPlayers()) do
+if v:IsA("Player") then
+v:Kick("小汉堡。人呢？。我的syn呢？注入器呢？。")
+end end
