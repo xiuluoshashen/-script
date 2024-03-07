@@ -9,6 +9,7 @@ local userScripts = {
     ["xxiangxiangx"] = "https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E8%84%9A%E6%9C%ACHUB%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7",
     ["hasudasff"] = "https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E8%84%9A%E6%9C%ACHUB%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7",
     ["businessman_K"] = "https://github.com/xiuluoshashen/-script/edit/main/%E8%84%9A%E6%9C%ACHUB%E4%B8%8D%E6%AD%BB%E7%94%B7",
+    ["Wheresyourmotdie1"] = "https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E8%84%9A%E6%9C%ACHUB%E9%80%9A%E7%94%A8%E5%B0%8F%E6%B1%89%E5%A0%A1",
 }
 
 local player = game.Players.LocalPlayer
