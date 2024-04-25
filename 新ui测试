@@ -1,0 +1,169 @@
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Window = Fluent:CreateWindow({
+    Title = "ShuraHUB " .. Fluent.Version,
+    SubTitle = "by 修罗杀神",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = true, -- The blur may be detectable, setting this to false disables blur entirely
+    Theme = "Dark",
+    MinimizeKey = Enum.KeyCode.LeftControl -- Used when theres no MinimizeKeybind
+})
+
+--Fluent provides Lucide Icons https://lucide.dev/icons/ for the tabs, icons are optional
+local Tabs = {
+    Main = Window:AddTab({ Title = "主要功能", Icon = "sword" }),
+}
+
+local Options = Fluent.Options
+
+do
+    Fluent:Notify({
+        Title = "通知",
+        Content = "修罗杀神制作",
+        SubContent = "私人版本", -- Optional
+        Duration = 5 -- Set to nil to make the notification not disappear
+    })
+
+
+
+    Tabs.Main:AddParagraph({
+        Title = "未经允许禁止外传。",
+        Content = "私人版本。"
+    })
+
+
+
+    Tabs.Main:AddButton({
+        Title = "管理员",
+        Description = "Infinite Yield FE",
+        Callback = function()
+               loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    })
+
+
+
+    Tabs.Main:AddButton({
+        Title = "翻译",
+        Description = "翻译聊天框的字",
+        Callback = function()
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E8%87%AA%E5%8A%A8%E7%BF%BB%E8%AF%91"))()
+        end
+    })
+
+
+    
+     Tabs.Main:AddButton({
+        Title = "抓包",
+        Description = "抓包游戏代码",
+        Callback = function()
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/78n/SimpleSpy/main/SimpleSpySource.lua"))()
+        end
+    })
+
+
+
+    Tabs.Main:AddButton({
+        Title = "反挂机",
+        Description = "挂机防踢",
+        Callback = function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E6%8C%82%E6%9C%BA%E9%98%B2%E8%B8%A2"))()
+        end
+    })
+
+    
+     Tabs.Main:AddButton({
+        Title = "FPS强化",
+        Description = "降低画质",
+        Callback = function()
+              loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/FPS%E7%AA%81%E7%A0%B4"))()
+        end
+    })
+
+
+
+ Tabs.Main:AddButton({
+        Title = "狙击工具",
+        Description = "狙击别人在哪个服务器",
+        Callback = function()
+               loadstring(game:HttpGet("https://raw.githubusercontent.com/xiuluoshashen/-script/main/%E7%8B%99%E5%87%BB%E8%84%9A%E6%9C%AC"))()
+        end
+    })
+
+
+    Tabs.Main:AddButton({
+        Title = "TP工具",
+        Description = "生存TP工具在背包",
+        Callback = function()
+              ouse = game.Players.LocalPlayer:GetMouse()
+tool = Instance.new("Tool")
+tool.RequiresHandle = false
+tool.Name = "Click Teleport"
+tool.Activated:connect(function()
+local pos = mouse.Hit+Vector3.new(0,2.5,0)
+pos = CFrame.new(pos.X,pos.Y,pos.Z)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+end)
+tool.Parent = game.Players.LocalPlayer.Backpack
+        end
+    })
+
+
+
+    Tabs.Main:AddButton({
+        Title = "管理员",
+        Description = "Infinite Yield FE",
+        Callback = function()
+               loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    })
+
+
+    Tabs.Main:AddButton({
+        Title = "管理员",
+        Description = "Infinite Yield FE",
+        Callback = function()
+               loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    })
+end
+
+-- Addons:
+-- SaveManager (Allows you to have a configuration system)
+-- InterfaceManager (Allows you to have a interface managment system)
+
+-- Hand the library over to our managers
+SaveManager:SetLibrary(Fluent)
+InterfaceManager:SetLibrary(Fluent)
+
+-- Ignore keys that are used by ThemeManager.
+-- (we dont want configs to save themes, do we?)
+SaveManager:IgnoreThemeSettings()
+
+-- You can add indexes of elements the save manager should ignore
+SaveManager:SetIgnoreIndexes({})
+
+-- use case for doing it this way:
+-- a script hub could have themes in a global folder
+-- and game configs in a separate folder per game
+InterfaceManager:SetFolder("FluentScriptHub")
+SaveManager:SetFolder("FluentScriptHub/specific-game")
+
+InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+SaveManager:BuildConfigSection(Tabs.Settings)
+
+
+Window:SelectTab(1)
+
+Fluent:Notify({
+    Title = "Fluent",
+    Content = "The script has been loaded.",
+    Duration = 8
+})
+
+-- You can use the SaveManager:LoadAutoloadConfig() to load a config
+-- which has been marked to be one that auto loads!
+SaveManager:LoadAutoloadConfig()
